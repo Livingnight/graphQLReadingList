@@ -35,6 +35,7 @@ build/Release
 # Dependency directories
 server/node_modules/
 .idea/
+node_modules
 jspm_packages/
 
 # TypeScript v1 declaration files
