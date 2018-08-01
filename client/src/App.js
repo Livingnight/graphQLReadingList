@@ -8,8 +8,9 @@ import AddBook from './components/AddBook';
 import AddAuthor from './components/AddAuthor';
 
 //setting up apollo client
+
 const client = new ApolloClient({
-    uri:`${window.location.href}/graphql`
+    uri: process.env.HEROKU_URI || 'http://localhost:3001/graphql'
 });
 
 
