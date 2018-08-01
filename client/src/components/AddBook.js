@@ -60,7 +60,9 @@ class AddBook extends Component {
     render(){
         // console.log(this.props);
         return(
+
            <form id='add-book' onSubmit={this.handleSubmit}>
+               <h3 id='title-field'>Add Book</h3>
                <div className='field'>
                    <label>BookName:</label>
                    <input
