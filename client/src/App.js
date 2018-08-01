@@ -8,8 +8,8 @@ import AddBook from './components/AddBook';
 
 //setting up apollo client
 const client = new ApolloClient({
-    uri:"http://localhost:3001/graphql"
-})
+    uri:`${window.location.href}/graphql`
+});
 
 
 
