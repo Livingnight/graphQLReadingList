@@ -1,5 +1,6 @@
 const express = require('express');
 const grapqlHTTP = require('express-graphql');
+const bodyParser = require('body-parser');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -11,8 +12,9 @@ const app = express();
 //allow cross origin requests
 app.use(cors());
 
+console.log(`${__dirname}/client/build`);
+app.use(express.static(path.join(`${__dirname}/client/build`)));
 
-app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
@@ -21,7 +23,7 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
-app.use('/graphql', grapqlHTTP({
+app.use('/graphql', bodyParser.json(), grapqlHTTP({
     schema,
     graphiql: true
 }));
